@@ -1,0 +1,22 @@
+<div id="vssue"></div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+<script src="https://unpkg.com/vssue/dist/vssue.github.min.js"></script>
+
+<script>
+    new Vue({
+        el: '#vssue',
+
+        data: {
+        title: 'Vssue Comment',
+
+        options: {
+            owner: '{{ .Site.Params.vssue.owner }}',
+            repo: '{{ .Site.Params.vssue.repo }}',
+            clientId: '{{ .Site.Params.vssue.clientId }}',
+            clientSecret: '{{ .Site.Params.vssue.clientSecret }}', // 只有在使用某些平台时需要
+        },
+        },
+
+        template: `<vssue :title="title" :options="options"></vssue>`,
+    })
+</script>

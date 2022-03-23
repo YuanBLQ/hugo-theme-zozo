@@ -28,10 +28,13 @@
                     </div>
                 </div>
                 <!-- 评论系统 -->
-                {{ if .Site.Params.valine.enable }}
-                {{ partial "comments.html" . }}
+                {{ if .Site.Params.vssue.enable }}
+                {{ partial "vssue.html" . }}
+                {{ else if .Site.Params.valine.enable }}
+                {{ partial "valine.html" . }}
                 {{ else }}
-                <div class="doc_comments">{{ template "_internal/disqus.html" . }}</div>
+                <div class="doc_comments"></div>
+                <!-- <div class="doc_comments">{{ template "_internal/disqus.html" . }}</div> -->
                 {{ end }}
             </div>
         </div>
